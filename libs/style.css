@@ -321,7 +321,7 @@ p {
 .main-box {
   position: relative;
   z-index: 1;
-  padding-top: 90px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 .positive li svg {
@@ -376,9 +376,7 @@ p {
   font-size: 14px;
   color: #1f1f1f;
   font-weight: lighter;
-  min-height: 190px;
   text-align: center;
-  line-height: 1.8em;
 }
 .testimonial svg {
   fill: #cccccc;
@@ -497,6 +495,10 @@ footer .container ul p {
   font-size: 13px;
   padding: 15px 0;
 }
+.copyright .container {
+  justify-content: center;
+}
+
 .lion {
   text-transform: uppercase;
   margin-left: 5px;
@@ -686,8 +688,8 @@ h1 {
 }
 
 .order-form {
-padding-top: 1rem;
-padding-bottom:1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   margin: auto;
 }
 

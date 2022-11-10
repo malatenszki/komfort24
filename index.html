@@ -1,384 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Komfort24 - Utazz velünk</title>
-    <link rel="stylesheet" href="libs/style.css">
-    <script src="libs/jquery.min.js"></script>
-    <link rel="stylesheet" href="libs/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="libs/dist/assets/owl.theme.default.min.css">
-    <link rel="shortcut icon" href="logo_vektor.svg" type="image/x-icon">
+    <link rel="stylesheet" href="libs/style.css" />
+    <!-- <script src="libs/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <link rel="stylesheet" href="libs/dist/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="libs/dist/assets/owl.theme.default.min.css" />
+    <link rel="shortcut icon" href="logo_vektor.svg" type="image/x-icon" />
     <script defer="defer" src="react/main.js"></script>
     <link href="react/main.css" rel="stylesheet" />
-</head>
-<body>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+  </head>
+  <body>
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <script>
-      window.fbAsyncInit = function() {
+      window.fbAsyncInit = function () {
         FB.init({
-          xfbml            : true,
-          version          : 'v9.0'
+          xfbml: true,
+          version: "v9.0",
         });
       };
 
-      (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/hu_HU/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/hu_HU/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
 
     <!-- Your Chat Plugin code -->
-    <div class="fb-customerchat"
+    <div
+      class="fb-customerchat"
       attribution="setup_tool"
       page_id="100826022019228"
-logged_in_greeting="Szia! Információ kell? Segítünk!"
-logged_out_greeting="zia! Információ kell? Segítünk!">
-    </div>
+      logged_in_greeting="Szia! Információ kell? Segítünk!"
+      logged_out_greeting="zia! Információ kell? Segítünk!"
+    ></div>
     <header>
-        
-        <div class="top">
-            <div class="background" style='background-image: url(bg-1.jpg);'></div>
-            <div class="container">
-  
-                <div class="menu-line">
-                    <div class="logo">
-                        <img src="images/komfort-logo-white.png" alt="">
-                    </div>
-
-                    <nav>
-                        <ul>
-                            <li><a href="#utvonal">Útvonalterv</a></li>
-                            <li><a href="#szemelyszallitas">Személyszállítás</a></li>
-                            <li><a href="#csomagszallitas">Csomagszállítás</a></li>
-                            <li><a href="#kapcsolat">Kapcsolat</a></li>
-                        </ul>
-                    </nav>
-                   
-                </div>
-                <div class="title">Kisbuszos Nemzetközi 
-                    <br>személyszállítás <br>
-                    <span>és csomagszállítás</span></div>
-                <div class='title3'>Hogyan lesz kevésbé fárasztó NÉMETORSZÁGI utazásod?</div>
-                <br>
-                <h3 style='text-align: center;'>A vadonatúj Komfort24  kisbuszainkkal!</h3>
-                <br>
-                <div class="phone">Vajdaság Magyarország Ausztria Németország</div>
-                <a href="#utvonal" class='submit-btn'>Megnézem az útvonalat</a>
+      <div class="top">
+        <div class="background" style="background-image: url(bg-1.jpg)"></div>
+        <div class="container">
+          <div class="menu-line">
+            <div class="logo">
+              <img src="images/komfort-logo-white.png" alt="" />
             </div>
+
+            <nav>
+              <ul>
+                <li><a href="#info">Utazási infó</a></li>
+                <li><a href="#szemelyszallitas">Személyszállítás</a></li>
+                <li><a href="#sztori">Komfort24 sztori</a></li>
+                <li><a href="#kapcsolat">Kapcsolat</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="title">
+            Nemzetközi személyszállítás
+            <div class="phone">
+              <br /><br />Vajdaság - Németország<br />
+              Németország - Vajdaság<br />
+            </div>
+          </div>
+
+          <div class="order-form" id="foglalas">
+            <div class="container">
+              <div id="root"></div>
+            </div>
+          </div>
+
+          <div class="title3">
+            Vajdaság egyik legnagyobb utaztatójaként garantáltan<br />
+            nem mondunk le egyetlen utat sem.
+          </div>
+          <br />
+          <h3 style="text-align: center">
+            Foglalj helyet nálunk és biztosan utazol!
+          </h3>
+          <br />
+          <br />
+          <br />
         </div>
-        <div class="container main-car">
-            <img class='main-image' src="imgbin_ford-tourneo-ford-transit-custom-ford-custom-van-car-png.png" alt="">
-            <a href="#telefon" class='submit-btn'>Foglalok</a>
-        </div>
-            
-        </div>
+      </div>
+      <div class="container main-car">
+        <img
+          class="main-image"
+          src="imgbin_ford-tourneo-ford-transit-custom-ford-custom-van-car-png.png"
+          alt=""
+        />
+      </div>
     </header>
     <main>
+      <div class="container" id="szemelyszallitas">
+        <br />
+        <div class="subtitle">Utazás, ahogy Te szereted</div>
+        <h2>Ilyen lesz az utazásod</h2>
+        <div class="flex-box">
+          <div class="box bordered">
+            <img
+              src="http://taxipark.like-themes.com/wp-content/uploads/2017/05/services-2.png"
+              alt=""
+            />
+            <h3>KOMFORTOS</h3>
+            <p>
+              Az új autó teljes kényelmét élvezheted utazásod alatt: az ülések
+              kényelmesek, a belső tér csendes. Télen a kellemes meleget
+              padlófűtés biztosítja Neked. Nyáron pedig tetőklímával hűtünk, így
+              nem fázol meg, ha elől ülsz, és nincs meleged ha hátul.
+            </p>
+          </div>
+          <div class="box bordered">
+            <img
+              src="http://taxipark.like-themes.com/wp-content/uploads/2017/05/services-3.png"
+              alt=""
+            />
+            <h3>BIZTONSÁGOS</h3>
+            <p>
+              Nem kell fél szemmel az utat lesned! Lelkes, képzett sofőrjeink
+              több százezer kilométert vezettek már le, nagy rutinnal
+              rendelkeznek. Te csak aludj nyugodtan, beszélgess, vagy hallgass
+              zenét, nézelődj!
+            </p>
+          </div>
+          <div class="box bordered">
+            <img
+              src="http://taxipark.like-themes.com/wp-content/uploads/2017/05/services-1.png"
+              alt=""
+            />
+            <h3>KISZÁMÍTHATÓ</h3>
+            <p>
+              Váratlan helyzetekre is van megoldásunk, hiszen téged
+              utasbiztosítás véd. Autóinkat pedig asszisztansz szolgáltatás,
+              hogy ne kelljen órákat az út mellett vesztegelni egy másik autóra
+              várva.
+            </p>
+          </div>
+        </div>
+        <h2>Utazz te is a Komfort24 kisbuszaival!</h2>
+        <a href="#foglalas" class="submit-btn">Foglalok</a>
+      </div>
+
+      <div class="testimonials">
         <div class="container">
-            <div class="subtitle">Utazás, ahogy Te szereted</div>
-            <h2>Ilyen lesz az utazásod</h2>
-            <div class="flex-box"  id='szemelyszallitas'>
-                <div class="box bordered">
-                    <img src="http://taxipark.like-themes.com/wp-content/uploads/2017/05/services-2.png" alt="">
-                    <h3>KOMFORTOS</h3>
-                    <p>Az új autó teljes kényelmét élvezheted utazásod alatt: az ülések kényelmesek, a belső tér csendes. Télen a kellemes meleget padlófűtés biztosítja Neked. Nyáron pedig tetőklímával hűtünk, így nem fázol meg, ha elől ülsz, és nincs meleged ha hátul.</p>
-                </div>
-                <div class="box bordered">
-                    <img src="http://taxipark.like-themes.com/wp-content/uploads/2017/05/services-3.png" alt="">
-                    <h3>BIZTONSÁGOS</h3>
-                    <p>
-                        Nem kell fél szemmel az utat lesned! Lelkes, képzett sofőrjeink több százezer kilométert vezettek már le, nagy rutinnal rendelkeznek. Te csak aludj nyugodtan, beszélgess, vagy hallgass zenét, nézelődj!
-                    </p>
-                </div>
-                <div class="box bordered">
-                    <img src="http://taxipark.like-themes.com/wp-content/uploads/2017/05/services-1.png" alt="">
-                    <h3>KISZÁMÍTHATÓ</h3>
-                    <p>
-                        Váratlan helyzetekre is van megoldásunk, hiszen téged utasbiztosítás véd. Autóinkat pedig asszisztansz szolgáltatás, hogy ne kelljen órákat az út mellett vesztegelni egy másik autóra várva.
-                    </p>
-                </div>
-                
+          <div class="subtitle">Kiváncsi vagy mit gondolnak utasaink?</div>
+          <h2>UTAS ELÉGEDETTSÉG</h2>
+          <div class="owl-carousel" id="products">
+            <div class="testimonial">
+              <p>
+                Csak ajánlani tudom mindenkinek! Pontosság,kényelmes utazás
+                rugalmassàg,profi sofőrök az utasokra való odafigyelés mind mind
+                így egyben!!! *5
+              </p>
+              <svg
+                id="Capa_1"
+                enable-background="new 0 0 409.294 409.294"
+                viewBox="0 0 409.294 409.294"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z"
+                />
+                <path
+                  d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z"
+                />
+              </svg>
+              <div class="name">Kinga</div>
             </div>
-            <h2>Utazz te is a Komfort24 kisbuszaival!</h2>
-            <a href="#telefon" class="submit-btn">Foglalok</a>
-        </div>
-        <div class="cars">
-            <div class="container">
-                <div class="subtitle">Lesd meg, milyen autókkal utazol</div>
-                <h2>Utazás képekben</h2>
-                    <div class="row">
-                        <div class="column">
-                            <img src="Komfort2.jpg" alt="">
-                            <img src="Komfort4.jpg" alt="">
-
-                        </div>
-                        <div class="column">
-                            <img src="Komfort12.jpg" alt="">   
-                            <img src="Komfort111.jpg" alt="">   
-                            
-                        </div>
-                        <div class="column">
-                            <img src="Komfort16.jpg" alt=""> 
-                            <img src="Komfort17.jpg" alt=""> 
-                            
-                        </div>
-                        <div class="column">
-                            <img src="Komfort8.jpg" alt="">
-                        </div>
-                    </div>
-                
-                   
-                </div>
-            
-        </div>
-        <div class="more-info">
-            <div class="background" style='background-image:url(http://taxipark.like-themes.com/wp-content/uploads/2017/05/download-bg.jpg)'></div>
-            <div class="container" id='csomagszallitas'>
-                <div class="subtitle">Nem csak téged, csomagodat is elvisszük</div>
-                <h2>Csomagszállítás</h2>
-                <p>FONTOS! Bővülő utaskörünk igénye miatt vállalunk csomagszállítást, de elsősorban személyszállítók vagyunk. Kérlek ezért vedd figyelembe, hogy csomagszállítást csak a megadott személyszállítási útvonalon vállalunk.</p>
-                <a href='#telefon' class="submit-btn">Információt kérek!</a>
-                <div class="why-us">
-                    <div class="why-box">
-                        <div class="number">
-                            <span>1.</span>
-                        </div>
-                        <div class="info">
-                            <h3>EXPRESSZ</h3>
-                            <p>24 órán belül megérkezik csomagod.</p>
-                        </div>
-                    </div>
-                    <div class="why-image">
-
-                    </div>
-                    <div class="why-box right">
-                        <div class="info">
-                            <h3>XXL CSOMAG</h3>
-                            <p>Nagyméretű csomagot is tudsz küldeni.</p>
-                        </div>
-                        <div class="number">
-                            <span>3.</span>
-                        </div>
-                    </div>
-                    <div class="why-box">
-                        <div class="number">
-                            <span>2.</span>
-                        </div>
-                        <div class="info">
-                            <h3>KÉNYELMES</h3>
-                            <p>Házhoz visszük csomagodat.</p>
-                        </div>
-                    </div>
-                    <div class="why-box right">
-                        <div class="info">
-                            <h3>PLUSZ CSOMAG</h3>
-                            <p>Utasként van lehetőséged plusz csomagot hozni korrekt áron.</p>
-                        </div>
-                        <div class="number">
-                            <span>4.</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="testimonial">
+              <p>
+                Meleg szívvel ajánlom mindenkinek
+                őket!Pontosság,precizitás,óvatosság,nyugalom. Régen utaztam már
+                ilyen jól és kényelmesen.
+              </p>
+              <svg
+                id="Capa_1"
+                enable-background="new 0 0 409.294 409.294"
+                viewBox="0 0 409.294 409.294"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z"
+                />
+                <path
+                  d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z"
+                />
+              </svg>
+              <div class="name">Andrea</div>
             </div>
+            <div class="testimonial">
+              <p>
+                Minden megbeszélés szerint működött.pontos érkezés,kellemes
+                utazás,profi sofőrök. költöztetéshez is ajánlom a Komfort 24
+                csapatát.
+              </p>
+              <svg
+                id="Capa_1"
+                enable-background="new 0 0 409.294 409.294"
+                viewBox="0 0 409.294 409.294"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z"
+                />
+                <path
+                  d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z"
+                />
+              </svg>
+              <div class="name">Angela</div>
+            </div>
+            <div class="testimonial">
+              <p>
+                Régóta utazom ki , de ez volt a legjobb transzferes , rugalmas ,
+                kényelmes! Csak ajánlom!
+              </p>
+              <svg
+                id="Capa_1"
+                enable-background="new 0 0 409.294 409.294"
+                viewBox="0 0 409.294 409.294"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z"
+                />
+                <path
+                  d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z"
+                />
+              </svg>
+              <div class="name">Gergely</div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="main-box" id='utvonal'>
-            <div class="container">
-                <div class="subtitle left">EGYSZERŰSÍTSD FOGLALÁSOD</div>
-                <h2 class='left'>Útvonalterv</h2>
-                <div class="flexed">
-                    <div class="left-side">
-                        <p>Nézd meg Magyarországi beszállóhelyeinket! Az M5-ös autópálya és az M1-es autópálya vonalán van lehetőséged beszállni.</p>
-                        <ul class='positive'>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Szeged és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Kiskunfélegyháza és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Kiskunhalas és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Kecskemét és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Budapest és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Tatabánya és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Győr és környéke</li>
-                        </ul>
-                        <p>Nézd meg Vajdasági beszállóhelyeinket!</p>
-                        <ul class='positive'>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Óbecse és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Ada és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Zenta és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Magyarkanizsa és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Topolya és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Csantavér és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Szabadka és környéke</li>
-                            <li><svg  viewBox="0 -46 417.81333 417" xmlns="http://www.w3.org/2000/svg"><path d="m159.988281 318.582031c-3.988281 4.011719-9.429687 6.25-15.082031 6.25s-11.09375-2.238281-15.082031-6.25l-120.449219-120.46875c-12.5-12.5-12.5-32.769531 0-45.246093l15.082031-15.085938c12.503907-12.5 32.75-12.5 45.25 0l75.199219 75.203125 203.199219-203.203125c12.503906-12.5 32.769531-12.5 45.25 0l15.082031 15.085938c12.5 12.5 12.5 32.765624 0 45.246093zm0 0"/></svg>Horgos és környéke</li>
-                        </ul>
-                        <a href='#telefon' class="yellow-btn">Foglalok!</a>
-                    </div>
-                    <div class="right-side">
-    
-                        <iframe src="https://www.google.com/maps/d/embed?mid=1INYKGh0lGLtDEnh1JYpL7Iwp21bm_fXV" width="100%" frameborder="0" height="480"></iframe>
-                    </div>
-                </div>
+      <div class="cars">
+        <div class="container">
+          <h2>Utazás képekben</h2>
+          <div class="row">
+            <div class="column">
+              <img src="Komfort2.png" alt="" />
+              <img src="Komfort4.png" alt="" />
+            </div>
+            <div class="column">
+              <img src="Komfort12.png" alt="" />
+              <img src="Komfort111.png" alt="" />
+            </div>
+            <div class="column">
+              <img src="Komfort16.png" alt="" />
+              <img src="Komfort17.png" alt="" />
+            </div>
+            <div class="column">
+              <img src="Komfort8.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="more-info">
+        <div
+          class="background"
+          style="
+            background-image: url(http://taxipark.like-themes.com/wp-content/uploads/2017/05/download-bg.jpg);
+          "
+        ></div>
+        <div class="container" id="info">
+          <h2>UTAZÁSI INFÓ</h2>
+          <p>
+            Kiszámíthatóságra és biztonságra van szükséged? Utazz a Komfort24
+            személyszállító cég megbízható, vadonatúj kisbuszaival!
+          </p>
+
+          <p>
+            Az utazásszervezéstől az utaztatásig mindent mi intézzünk, ezért
+            korrekt információkat kapsz az utazásodról!
+          </p>
+
+          <div
+            id="accordion"
+            style="display: flex; flex-direction: column; gap: 10px"
+          >
+            <h3 class="subtitle" style="cursor: pointer">
+              Milyen napokon indultok ki Németországba?
+            </h3>
+            <div>
+              <p>Szerdán, pénteken és vasárnap van utunk Németországba.</p>
+            </div>
+            <h3 class="subtitle" style="cursor: pointer">
+              Mikor van az indulás Németországba?
+            </h3>
+            <div>
+              <p>
+                Hajnali időpontban indulunk, általában hajnal 3-4 óra között.
+                Diszpécserünk előző nap délelőtt felhív minden utast, és
+                elmondja, mikor érkezik a Komfort24 sofőrje.
+              </p>
+            </div>
+            <h3 class="subtitle" style="cursor: pointer">
+              Mikor van az érkezés Németországba?
+            </h3>
+            <div>
+              <p>
+                Nehéz megmondani, mert függ a határ helyzettől (amiről tudjuk,
+                hogy nem egyszerű), az útviszonyoktól és attól is, hogy
+                Németország mely részére utazol. Amit ígérünk, hogy minden
+                felmerülő helyzetre megoldást keresünk. Folyamatosan figyelemmel
+                kísérjük a határ helyzetet, navigációval biztosítjuk, hogy az
+                esetleges baleseteket, vagy torlódásokat még időben kikerüljük.
+                A legfontosabb a biztonságod, ezért döntésünket elsődlegesen ez
+                befolyásolja, de tudjuk, hogy a hosszú út fárasztó lehet, ezért
+                mindent megteszünk, hogy utazásod gördülékeny legyen.
+              </p>
+            </div>
+            <h3 class="subtitle" style="cursor: pointer">
+              Milyen napokon jöttök vissza Vajdaságba?
+            </h3>
+            <div>
+              <p>Hétfőn, csütörtökön és szombaton jövünk vissza Vajdaságba.</p>
+            </div>
+            <h3 class="subtitle" style="cursor: pointer">
+              Milyen időpontban indultok vissza Vajdaságba?
+            </h3>
+            <div>
+              <p>
+                Kora reggeli időpontban indulunk el Németországból Vajdaságba.
+                Reggeli, illetve a délelőtti órákban lehet számítani az
+                érkezésünkre. Az időpont miatt előtte nap este a diszpécserünk
+                keres téged telefonon és megbeszéli veled a Komfort24 járátának
+                érkezését. Az utazás napján pedig a sofőr is felhív minden utast
+                fél órával az érkezése előtt, hogy biztosan fel tudj készülni az
+                utazásra.
+              </p>
+            </div>
+            <h3 class="subtitle" style="cursor: pointer">
+              Mennyi idő alatt érünk vissza Vajdaságba?
+            </h3>
+            <div>
+              <p>
+                A menetidőt hasonlóan az előzőekben megírtakhoz, nem tudjuk
+                pontosan megmondani, mindent megteszünk ami a biztonságos és
+                kényelmes utazásodhoz hozzájárul.
+              </p>
+            </div>
+            <h3 class="subtitle" style="cursor: pointer">
+              Mennyi csomagot hozhatok?
+            </h3>
+            <div>
+              <p>
+                Az utazási díjban egy nagy koffer és egy kis bőrönd van. Ha
+                ennél több csomagod van, semmi gond! Szólj diszpécserünknek,
+                hogy számítsunk rá! Van elég helyünk, ezért bátran mond, hogy
+                pontosan mit hozol, mennyi a csomagod. Így tudjuk csak
+                garantálni azt, hogy az összes csomagodat magaddal hozhatod! A
+                csomag díja egyedi áras, erről a diszpécserünk tud tájékoztatást
+                adni.
+              </p>
             </div>
 
-            <div class="margin-box"></div>
-            <div class="wpb_wrapper"><hr class="lg"></div>
-        </div>
-        <div class="testimonials">
-            <div class="container">
-                <div class="subtitle">Kiváncsi vagy mit gondolnak utasaink?</div>
-                <h2>UTAS ELÉGEDETTSÉG</h2>
-                <div class="owl-carousel" id='products'>
-                    <div class="testimonial">
-                        <p>Jól megszerveztétek az utat. Minden klappolt. Jó,hogy ti mindenre gondoltok!</p>
-                        <svg id="Capa_1" enable-background="new 0 0 409.294 409.294" viewBox="0 0 409.294 409.294" xmlns="http://www.w3.org/2000/svg"><path d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z"/><path d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z"/></svg>
-                        <div class="name">Mária</div>
-                        <div class="profile-image"></div>
-                    </div>
-                    <div class="testimonial">
-                        <p>Szépek ezek az új buszok! Hozzá tudnék szokni ehhez a kényelemhez! </p>
-                        <svg id="Capa_1" enable-background="new 0 0 409.294 409.294" viewBox="0 0 409.294 409.294" xmlns="http://www.w3.org/2000/svg"><path d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z"/><path d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z"/></svg>
-                        <div class="name">Lívia</div>
-                        <div class="profile-image"></div>
-                    </div>
-                    <div class="testimonial">
-                        <p>Ilyen rövid idő alatt még sosem értem haza Németországból.</p>
-                        <svg id="Capa_1" enable-background="new 0 0 409.294 409.294" viewBox="0 0 409.294 409.294" xmlns="http://www.w3.org/2000/svg"><path d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z"/><path d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z"/></svg>
-                        <div class="name">Sándor</div>
-                        <div class="profile-image"></div>
-                    </div>
-                    <div class="testimonial">
-                        <p>Már ajánlottalak is titeket a barátnőmnek. Jövő héten utazik veletek!</p>
-                        <svg id="Capa_1" enable-background="new 0 0 409.294 409.294" viewBox="0 0 409.294 409.294" xmlns="http://www.w3.org/2000/svg"><path d="m0 204.647v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941v-58.471c-96.728 0-175.412 78.684-175.412 175.412z"/><path d="m409.294 87.706v-58.471c-96.728 0-175.412 78.684-175.412 175.412v175.412h175.412v-175.412h-116.941c0-64.48 52.461-116.941 116.941-116.941z"/></svg>
-                        <div class="name">Szilvia</div>
-                        <div class="profile-image"></div>
-                    </div>
-
-                </div>
+            <h3 class="subtitle" style="cursor: pointer">Hova ülhetek?</h3>
+            <div>
+              <p>
+                Ha van egyéni kérésed a foglaláskor jelezd a diszpécsernek,
+                ellenkező esetben sajnos nem tudunk biztosítani fix helyet.
+              </p>
             </div>
-        </div>
 
-        <div class="order-form">
-            <div class="container">
-                <div id="root"></div>
+            <h3 class="subtitle" style="cursor: pointer">
+              Vállaltok-e költöztetést?
+            </h3>
+            <div>
+              <p>
+                Igen, előre egyeztetett időpontban és díjjal. Kérd
+                diszpécserünktől a Komfort24 ajánlatát!
+              </p>
             </div>
-        </div>
 
-
-        <div class="partners" id='telefon'>
-            <div class="container">
-                    <div class="titles">
-                     <img src="images/komfort-logo-black.png" alt="">
-                        <h3 style='text-align:center'>Információra van még szükséged? Segítünk! Hívj!</h3>
-                        <p style='text-align:center'>KATTINTS a telefonszámra!
-                            Mobilról egyből hívhatóak vagyunk!</p>
-                        <h2><a href="tel:+36 20 227 3388">+36 20 227 3388</a></h2>
-                    </div>
-                  
+            <h3 class="subtitle" style="cursor: pointer">
+              Milyen csomagot hozhatok át a határon vámmentesen? Mit vihetek
+              magammal?
+            </h3>
+            <div>
+              <p>
+                Új eszközök, gépek esetén a vámos a vételár 30 %-át is elkérheti
+                vámként. Ha használt műszaki vagy háztartási gépet, illetve
+                egyéb eszközt hozol egyénileg tudsz a vámossal erről egyeztetni.
+              </p>
             </div>
+
+            <h3 class="subtitle" style="cursor: pointer">
+              Számlát kérhetek-e?
+            </h3>
+            <div>
+              <p>
+                Igen. Kérünk téged, hogy jelezd számla igényedet foglaláskor, de
+                legkésőbb az utazást megelőző napon.
+              </p>
+            </div>
+
+            <h3 class="subtitle" style="cursor: pointer">
+              Utasbiztosításotok van? Mire terjed ki?
+            </h3>
+            <div>
+              <p>
+                Igen. Az utasbiztosításunk kizárólag az utazás alatt védi az
+                utast, külföldi tartózkodásod idejére saját magad kell
+                gondoskodnod a biztosításodról.
+              </p>
+            </div>
+          </div>
+          <br />
+          <br />
+          <h3 class="subtitle" style="cursor: pointer">
+            Nem találtad meg a kérdésedre a választ?
+          </h3>
+          <div class="title3">Hívj minket! Segítünk!</div>
+          <a href="#telefon" class="submit-btn">Telefonálok</a>
         </div>
+        <br />
+        <br />
+      </div>
+
+      <div class="main-box" id="sztori">
+        <div class="container">
+          <h2>KOMFORT24 SZTORI</h2>
+          <div style="text-align: center">
+            <img
+              src="nandor.jpg"
+              alt=""
+              height="300"
+              style="width: 350px; object-fit: contain"
+            />
+            <br />
+            <br />
+            <div class="subtitle">A fejlődés számomra a legfontosabb.</div>
+            <br />
+            <h4>
+              Miért jó ez neked, mint utasnak?<br />
+              Mert az elégedettséged a fejlődésem mércéje.
+            </h4>
+
+            <p>
+              A célom, hogy a nevünkhöz hűen kellemes élményt társítsanak az
+              utasok a Komfort24 utazási szolgáltatásához.<br />
+              Ezért döntöttem úgy, hogy vadonatúj 8 személyes kisbuszokkal
+              gondoskodunk az utasok kényelméről.<br />
+              Amikor kezdtem 2016-ban még nem állt rendelkezésemre ez a modern
+              géppark, de eltökélt szándékom volt a vállalkozás fejlesztése, ami
+              a céges kereteken felül az utasok kényelmét és biztonságát
+              szolgáló új Ford gépjárművek megvásárlásával folytatódott. A több
+              éves tapasztalat és az utasok igényeinek megismerése után pedig
+              egyre nagyobb figyelmet fordítottunk arra, hogy minőségi utazási
+              szolgáltatást biztosítsunk Németország és Vajdaság között. A
+              visszajelzésekből megtudtam, hogy az utasok szeretik a
+              kiszámíthatóságot, szeretik, ha foglalkoznak az egyedi
+              igényeikkel, és bizonytalanná teszi őket az, ha azt sem tudják, ki
+              és mikor jön értük, mire számíthatnak az utazás során. 2022-ben
+              emiatt a diszpécseri munkát is átvettem, hogy saját kézbe vegyem a
+              szervező munkát.
+            </p>
+
+            <h4>
+              Utasként nálunk a kérésed jó kezekben van, mert figyelünk
+              igényeidre.
+            </h4>
+
+            <p>
+              Ha az utas valamit szeretne velem egyeztetni a foglalástól az
+              utazás teljes szakaszán át a megérkezéséig megteheti. A sofőrökkel
+              folyamatos a kommunikáció az utazás során. Figyelemmel kísérem
+              azt, milyen gondja, óhaja van az utasunknak. A felmerülő
+              problémájával foglalkozok és megkeressük rá a lehető legjobb
+              megoldást, mint egy jó barát, aki ha baj van segít, ha kell
+              meghallgat és mindent elmond, amit tudnod kell.
+            </p>
+
+            <h4>„Nyugodtan hívjatok, mert itt vagyok!”</h4>
+
+            <p>
+              Baráti kommunikáció és közvetlenség jellemző leginkább ránk.
+              Bátran kijelenthetem, hogy aki egyszer utazik velünk, az biztos
+              nem csalódik bennünk. Állandó utasaink folyamatosan minket
+              választanak, mert szeretik, hogy a foglalástól a kiszálláson át,
+              az utazás alatt egészen a megérkezésig minden egy kézben van. Így
+              az információ folyamatosan eljut a diszpécsertől a sofőrig, a
+              sofőrtől az utasig, az utastól a diszpécserig. A lényeg tehát,
+              hogy az utas igénye egy helyre érkezik be: hozzám, és az utas
+              kérdéseivel, kéréseivel személyesen foglalkozom, minden üzenetre
+              válaszolok, szóban és tettekben is végig kísérem utasaink útját.
+              Ezzel biztosítva a kiszámíthatóságot, ami ebből is látszik, hogy
+              számomra nemcsak egy jól hangzó reklám szlogen.
+            </p>
+
+            <h4>Utaselégedettség maximalizálása a következő célom.</h4>
+
+            <p>
+              Modernebb foglalási feltételeket szeretnénk biztosítani, aminek
+              első állomása ez a weboldalon elérhető foglalási rendszer. Ezzel
+              is szeretném lerövidíteni az utasok foglalásra szánt idejét, hogy
+              egyszerűbben és gördülékenyebben tudjanak helyet foglalni a
+              Komfort24 járataira Vajdaság és Németország közötti utazásuk
+              során.
+            </p>
+          </div>
+        </div>
+
+        <div class="wpb_wrapper"><hr class="lg" /></div>
+      </div>
+
+      <div class="partners" id="telefon">
+        <div class="container">
+          <div class="titles">
+            <img src="images/komfort-logo-black.png" alt="" />
+            <h3 style="text-align: center">
+              Információra van még szükséged? Segítünk! Hívj!
+            </h3>
+            <p style="text-align: center">
+              KATTINTS a telefonszámra! Mobilról egyből hívhatóak vagyunk!
+            </p>
+            <h2><a href="tel:+381 69 707 181">+381 69 707 181</a></h2>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
-        <div class="container">
-            <ul>
-                <h3>Komfortos utazást kívánunk!</h3>
-                <p>Komfort24 csapata</p>
-          
-            </ul>
-           
-            <ul class='footer-contact' id='kapcsolat'>
-                <h3>Kapcsolat</h3>
-                <li class='m-20'><b>Cím:</b> Komfort Transzfer - 24 Kft. - Szeged, Bécsi krt. 23/A</li>
-                <li><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 513.64 513.64" style="enable-background:new 0 0 513.64 513.64;" xml:space="preserve">
-               
-                       <path d="M499.66,376.96l-71.68-71.68c-25.6-25.6-69.12-15.359-79.36,17.92c-7.68,23.041-33.28,35.841-56.32,30.72
+      <div class="container">
+        <ul>
+          <h3>Kellemes utazást!</h3>
+          <p>Komfort24 csapata</p>
+        </ul>
+
+        <ul class="footer-contact" id="kapcsolat">
+          <h3>Kapcsolat</h3>
+          <li class="m-20">
+            <b>Cím:</b> Komfort Transzfer - 24 Kft. - Szeged, Bécsi krt. 23/A
+          </li>
+          <li>
+            <svg
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 513.64 513.64"
+              style="enable-background: new 0 0 513.64 513.64"
+              xml:space="preserve"
+            >
+              <path
+                d="M499.66,376.96l-71.68-71.68c-25.6-25.6-69.12-15.359-79.36,17.92c-7.68,23.041-33.28,35.841-56.32,30.72
                            c-51.2-12.8-120.32-79.36-133.12-133.12c-7.68-23.041,7.68-48.641,30.72-56.32c33.28-10.24,43.52-53.76,17.92-79.36l-71.68-71.68
                            c-20.48-17.92-51.2-17.92-69.12,0l-48.64,48.64c-48.64,51.2,5.12,186.88,125.44,307.2c120.32,120.32,256,176.641,307.2,125.44
-                           l48.64-48.64C517.581,425.6,517.581,394.88,499.66,376.96z"/>
-               </svg>
-               +36 20 227 3388</li>
-         
-                <li><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                       <polygon points="339.392,258.624 512,367.744 512,144.896 		"/>
-               
-                       <polygon points="0,144.896 0,367.744 172.608,258.624 		"/>
-               
-                       <path d="M480,80H32C16.032,80,3.36,91.904,0.96,107.232L256,275.264l255.04-168.032C508.64,91.904,495.968,80,480,80z"/>
-               
-                       <path d="M310.08,277.952l-45.28,29.824c-2.688,1.76-5.728,2.624-8.8,2.624c-3.072,0-6.112-0.864-8.8-2.624l-45.28-29.856
-                           L1.024,404.992C3.488,420.192,16.096,432,32,432h448c15.904,0,28.512-11.808,30.976-27.008L310.08,277.952z"/>
-               </svg>info@komfort24.hu</li>
-               
-            </ul>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                © 2021 Minden jog fenntartva - <a href="https://lionwebdesign.hu" class='lion'>Lion<b>Webdesign</b></a>
-            </div>
-        </div>
+                           l48.64-48.64C517.581,425.6,517.581,394.88,499.66,376.96z"
+              />
+            </svg>
+            <a href="tel:+381 69 707 181">+381 69 707 181</a>
+          </li>
+
+          <li>
+            <svg
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 512 512"
+              style="enable-background: new 0 0 512 512"
+              xml:space="preserve"
+            >
+              <polygon points="339.392,258.624 512,367.744 512,144.896 		" />
+
+              <polygon points="0,144.896 0,367.744 172.608,258.624 		" />
+
+              <path
+                d="M480,80H32C16.032,80,3.36,91.904,0.96,107.232L256,275.264l255.04-168.032C508.64,91.904,495.968,80,480,80z"
+              />
+
+              <path
+                d="M310.08,277.952l-45.28,29.824c-2.688,1.76-5.728,2.624-8.8,2.624c-3.072,0-6.112-0.864-8.8-2.624l-45.28-29.856
+                           L1.024,404.992C3.488,420.192,16.096,432,32,432h448c15.904,0,28.512-11.808,30.976-27.008L310.08,277.952z"
+              /></svg
+            >info@komfort24.rs
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <div class="container">© 2021 Minden jog fenntartva</div>
+      </div>
     </footer>
     <script>
-    // Select all links with hashes
-    $('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function(event) {
-    // On-page links
-    if (
-    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-    && 
-    location.hostname == this.hostname
-    ) {
-    // Figure out element to scroll to
-    var target = $(this.hash);
-    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-    // Does a scroll target exist?
-    if (target.length) {
-    // Only prevent default if animation is actually gonna happen
-    event.preventDefault();
-    $('html, body').animate({
-    scrollTop: target.offset().top
-    }, 1000, function() {
-    // Callback after animation
-    // Must change focus!
-    var $target = $(target);
-    $target.focus(); 
-    });
-    }
-    }
-    });
+      // Select all links with hashes
+      $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function (event) {
+          // On-page links
+          if (
+            location.pathname.replace(/^\//, "") ==
+              this.pathname.replace(/^\//, "") &&
+            location.hostname == this.hostname
+          ) {
+            // Figure out element to scroll to
+            var target = $(this.hash);
+            target = target.length
+              ? target
+              : $("[name=" + this.hash.slice(1) + "]");
+            // Does a scroll target exist?
+            if (target.length) {
+              // Only prevent default if animation is actually gonna happen
+              event.preventDefault();
+              $("html, body").animate(
+                {
+                  scrollTop: target.offset().top,
+                },
+                1000,
+                function () {
+                  // Callback after animation
+                  // Must change focus!
+                  var $target = $(target);
+                  $target.focus();
+                }
+              );
+            }
+          }
+        });
     </script>
     <script>
-    $(document).ready(function() {
-
-    $("#products").owlCarousel({
-    loop:true,
-    dots:true,
-    nav:true,
-    items: 3, 
-    margin:30,
-    responsiveClass:true,
-    responsive:{
-    0:{
-        items:1,
-    },
-    768:{
-        items:2,
-    },
-    1200:{
-        items:3,
-    }
-    }
-
-    });
-
-    });
+      $(document).ready(function () {
+        $("#products").owlCarousel({
+          loop: true,
+          dots: true,
+          nav: true,
+          items: 3,
+          margin: 30,
+          responsiveClass: true,
+          responsive: {
+            0: {
+              items: 1,
+            },
+            768: {
+              items: 2,
+            },
+            1200: {
+              items: 3,
+            },
+          },
+        });
+      });
     </script>
     <script src="libs/dist/owl.carousel.min.js"></script>
-
-</body>
+  </body>
+  <script>
+    $(function () {
+      $("#accordion").accordion();
+    });
+  </script>
 </html>
