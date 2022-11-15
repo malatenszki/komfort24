@@ -522,7 +522,13 @@
             <p style="text-align: center">
               KATTINTS a telefonszámra! Mobilról egyből hívhatóak vagyunk!
             </p>
-            <h2><a href="tel:+381 69 707 181">+381 69 707 181</a></h2>
+            <h2 style="display: flex; justify-content: center; gap: 20px">
+              <img
+                src="phone.png"
+                alt=""
+                style="width: 50px; margin: 0; object-fit: contain"
+              /><a href="tel:+381 69 707 181">+381 69 707 181</a>
+            </h2>
           </div>
         </div>
       </div>
@@ -658,7 +664,7 @@
   </body>
   <script>
     $(function () {
-      $("#accordion").accordion();
+      $("#accordion").accordion({ active: false, collapsible: true });
     });
   </script>
 </html>
