@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="libs/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-    <link rel="stylesheet" href="libs/dist/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="libs/dist/assets/owl.theme.default.min.css" />
     <link rel="shortcut icon" href="logo_vektor.svg" type="image/x-icon" />
     <script defer="defer" src="react/main.js"></script>
     <link href="react/main.css" rel="stylesheet" />
@@ -53,6 +51,9 @@
               <img src="images/komfort-logo-white.png" alt="" />
             </div>
 
+            <div style="width: 40px; object-fit: contain" id="menu">
+              <img src="menu.png" alt="" />
+            </div>
             <nav>
               <ul>
                 <li><a href="#info">Utazási infó</a></li>
@@ -62,6 +63,16 @@
               </ul>
             </nav>
           </div>
+
+          <nav id="mobile-menu">
+            <ul>
+              <li><a href="#info">Utazási infó</a></li>
+              <li><a href="#szemelyszallitas">Személyszállítás</a></li>
+              <li><a href="#sztori">Komfort24 sztori</a></li>
+              <li><a href="#kapcsolat">Kapcsolat</a></li>
+            </ul>
+          </nav>
+
           <div class="title">
             Nemzetközi személyszállítás
             <div class="phone">
@@ -638,33 +649,18 @@
         });
     </script>
     <script>
-      $(document).ready(function () {
-        $("#products").owlCarousel({
-          loop: true,
-          dots: true,
-          nav: true,
-          items: 3,
-          margin: 30,
-          responsiveClass: true,
-          responsive: {
-            0: {
-              items: 1,
-            },
-            768: {
-              items: 2,
-            },
-            1200: {
-              items: 3,
-            },
-          },
-        });
+      $("#menu").click(function () {
+        $("#mobile-menu").slideToggle("slow");
       });
     </script>
-    <script src="libs/dist/owl.carousel.min.js"></script>
   </body>
   <script>
     $(function () {
-      $("#accordion").accordion({ active: false, collapsible: true });
+      $("#accordion").accordion({
+        active: false,
+        collapsible: true,
+        heightStyle: "content",
+      });
     });
   </script>
 </html>

@@ -98,6 +98,36 @@ header {
   align-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 760px) {
+  .menu-line {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+#mobile-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#mobile-menu ul li {
+  text-align: center;
+}
+
+@media screen and (min-width: 760px) {
+  #menu {
+    display: none;
+  }
+
+  #mobile-menu {
+    display: none;
+  }
+}
+
 .submit-btn {
   background: #9f340a;
   color: white;
